@@ -17,7 +17,7 @@
     <nav
       class="container-fluid p-3 bg-dark text-light fw-light fs-4 text-center shadow"
     >
-      ALGORITHM VISUALIZER
+      ALGORITHM VISUALIZER (SORTING)
     </nav>
     <audio
       id="audio"
@@ -26,58 +26,63 @@
     <div class="container-fluid d-flex justify-content-center">
       <div>
         <div class="card my-2">
-          <div class="card-body">Animation Speed</div>
+          <div class="card-body">
+            <h6>Animation delay</h6>
+            <div class="d-flex justify-content-between">
+              <label>1ms</label>
+              <label>100ms</label>
+              <label>200ms</label>
+              <label>300ms</label>
+              <label>400ms</label>
+              <label>500ms</label>
+            </div>
+            <input
+              type="range"
+              class="form-range me-5"
+              id="customRange1"
+              name="animationSpeed"
+              min="0"
+              max="10"
+              step="2"
+              value="0"
+              onchange="return adjustAnimation(event)"
+            />
+          </div>
         </div>
         <div class="card" style="height: 25rem">
           <div class="heading p-3 mb-0">
-            <h4>LET'S SORT</h4>
-            <form onsubmit="return handleSubmit(event)" class="mb-2">
-              <input
-                type="text"
-                id="inputs"
-                name="elements"
-                value=""
-                placeholder="Enter some random space separated integers"
-                class="form-control mb-2"
-                required
-              />
-              <div class="d-flex">
-                <select
-                  class="form-select me-1"
-                  name=""
-                  id=""
-                  style="width: 28%"
-                  onchange="return handleSortAlgo(event)"
-                >
-                  <option value="bubbleSort">Bubble Sort</option>
-                  <option value="mergeSort">Merge Sort</option>
-                  <option value="quickSort">Quick Sort</option>
-                </select>
-                <button
-                  class="btn btn-primary btn-sm me-1"
-                  type="submit"
-                  style="width: 24%"
-                >
-                  Load
-                </button>
-                <button
-                  class="btn btn-danger btn-sm me-1"
-                  onclick="return clearInput()"
-                  style="width: 24%"
-                >
-                  Clear
-                </button>
-                <button
-                  class="btn btn-success btn-sm"
-                  onclick="return handleSort()"
-                  style="width: 24%"
-                >
-                  Sort
-                </button>
-              </div>
-            </form>
-            <div class="bg-light p-2 rounded mb-0">
-              <label id="complexity" class="text-dark"
+            <div class="d-flex">
+              <select
+                class="form-select me-1"
+                name=""
+                id=""
+                style="width: 40%"
+                onchange="return handleSortAlgo(event)"
+              >
+                <option value="bubbleSort">Bubble Sort</option>
+                <option value="mergeSort">Merge Sort</option>
+                <option value="quickSort">Quick Sort</option>
+              </select>
+
+              <button
+                class="btn btn-primary btn-sm me-1"
+                type="submit"
+                style="width: 30%"
+                onclick="return loadRandomSamples()"
+              >
+                Randomize
+              </button>
+              <button
+                class="btn btn-success btn-sm"
+                onclick="return handleSort()"
+                style="width: 30%"
+              >
+                Sort
+              </button>
+            </div>
+
+            <div class="p-2 rounded mb-0">
+              <label id="complexity" class="text-primary fs-5 fw-bold"
                 >Time Complexity: 0[n^2]</label
               >
             </div>
@@ -87,8 +92,14 @@
           </div>
         </div>
         <div class="card mt-1 mb-5">
-          <div class="card-body px-3">
-            <h3>Actions</h3>
+          <div class="card-body px-3 d-flex justify-content-between">
+            <h5>Actions</h5>
+            <button
+              class="btn btn-danger btn-sm"
+              onclick="return clearConsole()"
+            >
+              Clear console
+            </button>
           </div>
           <div
             class="overflow-auto p-3 pb-3 bg-dark border"
@@ -99,6 +110,9 @@
         </div>
       </div>
     </div>
+    <footer class="bg-dark py-3 text-light text-center">
+      <p>Made By Akash Sardar 😉</p>
+    </footer>
   </body>
   <script src="main.js"></script>
   <script
