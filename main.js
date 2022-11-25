@@ -136,7 +136,8 @@ const mergeSort = async (bars, low, high) => {
 };
 
 function loadRandomSamples() {
-  let length = parseInt(window.innerWidth / 30);
+  // let length = parseInt(window.innerWidth / 27);
+  let length = 30;
   let max = 100;
 
   console.log(length);
@@ -191,8 +192,8 @@ function clearConsole() {
   logs.innerHTML = "";
 }
 
-addEventListener("resize", (event) => {
-  loadRandomSamples();
-});
+// addEventListener("resize", (event) => {
+//   loadRandomSamples();
+// });
 
 loadRandomSamples();
