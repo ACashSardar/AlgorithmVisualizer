@@ -1,11 +1,15 @@
+body {
+  background: palegoldenrod;
+}
+
 .vertical {
   border-left: 8px solid black;
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
 }
 
 #logs {
-  font-family: "Courier New", Courier, monospace;
+  font-family: Monaco;
   color: lime;
 }
 
@@ -15,6 +19,7 @@
 
 @media screen and (max-width: 1000px) {
   .card {
-    width: 90vw;
+    width: 84vw;
+    margin: 0;
   }
 }

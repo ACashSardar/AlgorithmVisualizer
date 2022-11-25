@@ -23,9 +23,10 @@
       id="audio"
       src="media/mixkit-retro-game-notification-212-[AudioTrimmer.com].wav"
     ></audio>
+
     <div class="container-fluid d-flex justify-content-center">
       <div>
-        <div class="card my-2">
+        <div class="card my-2 rounded-0 shadow">
           <div class="card-body">
             <h6>Animation delay</h6>
             <div class="d-flex justify-content-between">
@@ -49,8 +50,9 @@
             />
           </div>
         </div>
-        <div class="card" style="height: 25rem">
-          <div class="d-flex justify-content-center bg-info m-0">
+
+        <div class="card mb-2 rounded-0 shadow" style="height: 25rem">
+          <div class="d-flex justify-content-center bg-secondary m-0">
             <span class="fs-4 text-light py-1">Sorting</span>
           </div>
           <hr class="m-0 p-0" />
@@ -58,7 +60,7 @@
           <div class="heading p-3 mb-0">
             <div class="d-flex">
               <select
-                class="form-select me-1"
+                class="form-select me-1 rounded-0"
                 name=""
                 id=""
                 style="width: 40%"
@@ -71,7 +73,7 @@
               </select>
 
               <button
-                class="btn btn-primary btn-sm me-1"
+                class="btn btn-primary btn-sm me-1 rounded-0"
                 type="submit"
                 style="width: 30%"
                 onclick="return loadRandomSamples()"
@@ -79,7 +81,7 @@
                 Randomize
               </button>
               <button
-                class="btn btn-success btn-sm"
+                class="btn btn-success btn-sm rounded-0"
                 onclick="return handleSort()"
                 style="width: 30%"
               >
@@ -87,7 +89,7 @@
               </button>
             </div>
 
-            <div class="p-2 rounded mb-0">
+            <div class="p-2 mb-0">
               <label id="complexity" class="text-secondary fs-5 fw-normal"
                 >Time Complexity: 0[n^2]</label
               >
@@ -98,11 +100,11 @@
           </div>
         </div>
 
-        <div class="card mt-1 mb-5">
-          <div class="card-body px-3 d-flex justify-content-between">
-            <h5>Actions</h5>
+        <div class="card mb-2 rounded-0 shadow">
+          <div class="card-body px-3 d-flex justify-content-between rounded">
+            <p class="fs-5 mb-0">View Logs</p>
             <button
-              class="btn btn-danger btn-sm"
+              class="btn btn-danger rounded-0"
               onclick="return clearConsole()"
             >
               Clear console
@@ -117,7 +119,7 @@
         </div>
       </div>
     </div>
-    <footer class="bg-dark py-3 text-light text-center">
+    <footer class="bg-dark pt-3 pb-2 fw-light fs-4 text-light text-center">
       <p>Made By Akash Sardar 😉</p>
     </footer>
   </body>

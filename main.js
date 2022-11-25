@@ -34,7 +34,7 @@ const setUpBarHeights = (bars, elements) => {
   const max = elements.reduce((a, b) => Math.max(a, b), -Infinity);
   Array.from(bars).forEach((bar, index) => {
     bar.style.height = (elements[index] * 200) / max + "px";
-    bar.style.left = index * 10 + "px";
+    bar.style.left = 5 + index * 10 + "px";
   });
 };
 
