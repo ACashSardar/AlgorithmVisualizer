@@ -76,22 +76,20 @@ const bubbleSort = async (bars) => {
   logs.innerHTML += "<p>Starting Bubble Sort...</p>";
   for (let i = 0; i < bars.length; i++) {
     for (let j = 0; j < bars.length - i - 1; j++) {
-      await timer(animationTime);
-      logs.innerHTML += `<p>Comparing ${pixelToInt(
-        bars[j].style.height
-      )} to ${pixelToInt(bars[j + 1].style.height)}</p>`;
-
+      bars[j].style.borderLeftColor = "black";
       if (
         pixelToInt(bars[j].style.height) > pixelToInt(bars[j + 1].style.height)
       ) {
         logs.innerHTML += `<p class="text-warning" >Swapping ${pixelToInt(
           bars[j].style.height
         )} with ${pixelToInt(bars[j + 1].style.height)}</p>`;
-
         swapBars(bars, j, j + 1);
+        bars[j + 1].style.borderLeftColor = "lime";
+        await timer(animationTime);
       }
     }
-    bars[bars.length - i - 1].style.borderLeftColor = "crimson";
+
+    bars[bars.length - i - 1].style.borderLeftColor = "blueviolet";
     audio.play();
   }
   logs.innerHTML += "<p>Done..</p>";
@@ -135,12 +133,42 @@ const mergeSort = async (bars, low, high) => {
   await merge(bars, low, mid, high);
 };
 
+const selectionSort = async (bars) => {
+  for (let i = 0; i < bars.length; i++) {
+    let minValIndx = i;
+
+    for (let j = i + 1; j < bars.length; j++) {
+      if (
+        pixelToInt(bars[j].style.height) <
+        pixelToInt(bars[minValIndx].style.height)
+      ) {
+        minValIndx = j;
+      } else {
+        bars[j].style.borderLeftColor = "black";
+      }
+    }
+
+    bars[minValIndx].style.borderLeftColor = "orangered";
+
+    logs.innerHTML += `<p>Min Value ${pixelToInt(
+      bars[minValIndx].style.height
+    )} found at index ${minValIndx} </p>`;
+
+    logs.innerHTML += `<p class="text-warning">Min Value ${pixelToInt(
+      bars[minValIndx].style.height
+    )} swapped with ${pixelToInt(bars[i].style.height)}</p>`;
+    await timer(animationTime);
+    swapBars(bars, i, minValIndx);
+    audio.play();
+    bars[i].style.borderLeftColor = "navy";
+  }
+};
+
 function loadRandomSamples() {
   // let length = parseInt(window.innerWidth / 27);
   let length = 30;
   let max = 100;
 
-  console.log(length);
   barList.innerHTML = "";
   let elements = [...new Array(length)].map(() =>
     Math.round(Math.random() * max)
@@ -162,7 +190,7 @@ function loadRandomSamples() {
 function handleSortAlgo(e) {
   sortingAlgo = e.target.value;
 
-  if (sortingAlgo === "bubbleSort") {
+  if (sortingAlgo === "bubbleSort" || sortingAlgo === "selectionSort") {
     complexity.innerHTML = "Time Complexity: 0[n^2]";
   } else if (sortingAlgo === "quickSort" || sortingAlgo === "mergeSort") {
     complexity.innerHTML = "Time Complexity: 0[nlog(n)]";
@@ -184,6 +212,9 @@ function handleSort() {
   } else if (sortingAlgo === "mergeSort") {
     logs.innerHTML = "<p>Starting Merge Sort..</p>";
     mergeSort(verticalBars, 0, verticalBars.length - 1);
+  } else if (sortingAlgo === "selectionSort") {
+    logs.innerHTML = "<p>Starting Selection Sort..</p>";
+    selectionSort(verticalBars);
   }
   isSorted = true;
 }

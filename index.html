@@ -17,7 +17,7 @@
     <nav
       class="container-fluid p-3 bg-dark text-light fw-light fs-4 text-center shadow"
     >
-      ALGORITHM VISUALIZER (SORTING)
+      ALGORITHM VISUALIZER
     </nav>
     <audio
       id="audio"
@@ -50,6 +50,11 @@
           </div>
         </div>
         <div class="card" style="height: 25rem">
+          <div class="d-flex justify-content-center bg-info m-0">
+            <span class="fs-4 text-light py-1">Sorting</span>
+          </div>
+          <hr class="m-0 p-0" />
+
           <div class="heading p-3 mb-0">
             <div class="d-flex">
               <select
@@ -61,6 +66,7 @@
               >
                 <option value="bubbleSort">Bubble Sort</option>
                 <option value="mergeSort">Merge Sort</option>
+                <option value="selectionSort">Selection Sort</option>
                 <option value="quickSort">Quick Sort</option>
               </select>
 
@@ -82,7 +88,7 @@
             </div>
 
             <div class="p-2 rounded mb-0">
-              <label id="complexity" class="text-primary fs-5 fw-bold"
+              <label id="complexity" class="text-secondary fs-5 fw-normal"
                 >Time Complexity: 0[n^2]</label
               >
             </div>
@@ -91,6 +97,7 @@
             <ul id="bar-list" class="d-flex justify-content-center"></ul>
           </div>
         </div>
+
         <div class="card mt-1 mb-5">
           <div class="card-body px-3 d-flex justify-content-between">
             <h5>Actions</h5>
