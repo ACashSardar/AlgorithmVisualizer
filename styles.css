@@ -1,0 +1,20 @@
+.vertical {
+  border-left: 8px solid black;
+  position: absolute;
+  bottom: 0;
+}
+
+#logs {
+  font-family: "Courier New", Courier, monospace;
+  color: lime;
+}
+
+.card {
+  width: 50rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .card {
+    width: 90vw;
+  }
+}
