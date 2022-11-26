@@ -14,11 +14,6 @@
     <title>Algo View</title>
   </head>
   <body>
-    <nav
-      class="container-fluid p-3 bg-dark text-light fw-light fs-4 text-center shadow"
-    >
-      ALGORITHM VISUALIZER
-    </nav>
     <audio
       id="audio"
       src="media/mixkit-retro-game-notification-212-[AudioTrimmer.com].wav"
@@ -26,10 +21,14 @@
 
     <div class="container-fluid d-flex justify-content-center">
       <div>
-        <div class="card my-2 rounded-0 shadow">
+        <div class="text-center">
+          <label class="custom-text mt-5">SORTING VISUALIZER</label>
+        </div>
+
+        <div class="card my-2 rounded-0">
           <div class="card-body">
-            <h6>Animation delay</h6>
-            <div class="d-flex justify-content-between">
+            <h6 class="custom-text">Animation delay</h6>
+            <div class="d-flex justify-content-between custom-text">
               <label>1ms</label>
               <label>100ms</label>
               <label>200ms</label>
@@ -48,22 +47,38 @@
               value="0"
               onchange="return adjustAnimation(event)"
             />
+            <hr class="text-light" />
+            <h6 class="custom-text">Number of Samples</h6>
+            <div class="d-flex justify-content-between custom-text">
+              <label>50</label>
+              <label>100</label>
+              <label>150</label>
+              <label>200</label>
+              <label>250</label>
+              <label>300</label>
+            </div>
+            <input
+              type="range"
+              class="form-range me-5"
+              id="customRange1"
+              name="bar-width"
+              min="50"
+              max="300"
+              step="50"
+              value="50"
+              onchange="return adjustBarWidth(event)"
+            />
           </div>
         </div>
 
-        <div class="card mb-2 rounded-0 shadow" style="height: 25rem">
-          <div class="d-flex justify-content-center bg-secondary m-0">
-            <span class="fs-4 text-light py-1">Sorting</span>
-          </div>
-          <hr class="m-0 p-0" />
-
+        <div class="card mb-2 rounded-0" style="height: 25rem">
           <div class="heading p-3 mb-0">
-            <div class="d-flex">
+            <div class="d-flex justify-content-between">
               <select
                 class="form-select me-1 rounded-0"
                 name=""
                 id=""
-                style="width: 40%"
+                style="width: 44%"
                 onchange="return handleSortAlgo(event)"
               >
                 <option value="bubbleSort">Bubble Sort</option>
@@ -73,45 +88,56 @@
               </select>
 
               <button
-                class="btn btn-primary btn-sm me-1 rounded-0"
+                class="custom-btn fw-bold me-1"
                 type="submit"
-                style="width: 30%"
+                style="width: 28%"
                 onclick="return loadRandomSamples()"
               >
-                Randomize
+                Shuffle
               </button>
               <button
-                class="btn btn-success btn-sm rounded-0"
+                class="custom-btn fw-bold"
                 onclick="return handleSort()"
-                style="width: 30%"
+                style="width: 28%"
               >
                 Sort
               </button>
             </div>
 
-            <div class="p-2 mb-0">
-              <label id="complexity" class="text-secondary fs-5 fw-normal"
-                >Time Complexity: 0[n^2]</label
+            <div class="p-2 mb-0 d-flex justify-content-between">
+              <label id="complexity" class="fs-6 fw-bold custom-text"
+                >TC: 0[n²]</label
+              >
+              <label id="array-size" class="fs-6 fw-bold custom-text"
+                >Array Size</label
+              >
+              <label id="runtime" class="fs-6 fw-bold custom-text"
+                >Stopped</label
               >
             </div>
           </div>
-          <div class="card-body bg-light border border-top">
-            <ul id="bar-list" class="d-flex justify-content-center"></ul>
+          <div class="card-body border border-top custom-bg">
+            <ul id="bar-list"></ul>
           </div>
         </div>
 
-        <div class="card mb-2 rounded-0 shadow">
-          <div class="card-body px-3 d-flex justify-content-between rounded">
-            <p class="fs-5 mb-0">View Logs</p>
-            <button
-              class="btn btn-danger rounded-0"
-              onclick="return clearConsole()"
-            >
-              Clear console
-            </button>
+        <div class="card mb-2 rounded-0">
+          <div class="card-body p-3 d-flex justify-content-between rounded">
+            <p class="fs-6 fw-bold mb-0 mt-2 custom-text">View Logs</p>
+            <span>
+              <button class="custom-btn2 fw-bold" onclick="return reset()">
+                Reset
+              </button>
+              <button
+                class="custom-btn fw-bold"
+                onclick="return clearConsole()"
+              >
+                Clear console
+              </button>
+            </span>
           </div>
           <div
-            class="overflow-auto p-3 pb-3 bg-dark border"
+            class="overflow-auto p-3 pb-3 border custom-bg"
             style="height: 10rem"
           >
             <p id="logs" class="fs-6 fw-bold"></p>
@@ -119,8 +145,8 @@
         </div>
       </div>
     </div>
-    <footer class="bg-dark pt-3 pb-2 fw-light fs-4 text-light text-center">
-      <p>Made By Akash Sardar 😉</p>
+    <footer class="pt-3 pb-2 text-center">
+      <p>Developed By Akash Sardar ✌🏻</p>
     </footer>
   </body>
   <script src="main.js"></script>
