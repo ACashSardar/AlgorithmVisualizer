@@ -1,5 +1,6 @@
 const logs = document.getElementById("logs");
 const audio = document.getElementById("audio");
+const audio2 = document.getElementById("audio2");
 const barList = document.getElementById("bar-list");
 const complexity = document.getElementById("complexity");
 const runtime = document.getElementById("runtime");
@@ -209,6 +210,7 @@ function loadRandomSamples() {
     <span class="vertical"></span>
     </li>
 `;
+    audio2.play();
   }
 
   verticalBars = document.getElementsByClassName("vertical");
@@ -251,9 +253,15 @@ async function handleSort() {
   let stop = new Date().getTime();
   isSorted = true;
   running = false;
-  if (stop - start < 1000) runtime.innerHTML = "⏱️" + (stop - start) + " ms";
-  else {
-    runtime.innerHTML = "⏱️" + ((stop - start) / 1000).toFixed(2) + " s";
+
+  let ms = stop - start;
+  let sec = ((stop - start) / 1000).toFixed(2);
+  let min = parseInt(sec / 60);
+  if (stop - start < 1000) runtime.innerHTML = "⏱️" + ms + " ms";
+  else if (stop - start < 60000) {
+    runtime.innerHTML = "⏱️" + sec + " s";
+  } else {
+    runtime.innerHTML = "⏱️" + min + " m" + sec + " s";
   }
 }
 
