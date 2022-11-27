@@ -112,12 +112,11 @@ const bubbleSort = async (bars) => {
         )} with ${pixelToInt(bars[j + 1].style.height)}</p>`;
         swapBars(bars, j, j + 1);
 
-        bars[j + 1].style.borderLeftColor = "lime";
+        bars[j + 1].style.borderLeftColor = "hotpink";
         await timer(animationTime);
       }
     }
-
-    bars[bars.length - i - 1].style.borderLeftColor = "blueviolet";
+    bars[bars.length - i - 1].style.borderLeftColor = "cyan";
     audio.play();
   }
   logs.innerHTML += "<p>Done..</p>";
