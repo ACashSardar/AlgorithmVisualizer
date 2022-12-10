@@ -10,6 +10,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="styles.css" />
     <title>Algo View</title>
   </head>
@@ -27,6 +28,7 @@
       <div>
         <div class="text-center">
           <label class="custom-text mt-5">SORTING VISUALIZER</label>
+          <a href="backtracking.html">Backtracking</a>
         </div>
 
         <div class="card my-2 rounded-0">
@@ -92,7 +94,7 @@
               </select>
 
               <button
-                class="custom-btn fw-bold me-1"
+                class="custom-btn me-1"
                 type="submit"
                 style="width: 28%"
                 onclick="return loadRandomSamples()"
@@ -100,7 +102,7 @@
                 Shuffle
               </button>
               <button
-                class="custom-btn fw-bold"
+                class="custom-btn"
                 onclick="return handleSort()"
                 style="width: 28%"
               >
@@ -109,15 +111,9 @@
             </div>
 
             <div class="p-2 mb-0 d-flex justify-content-between">
-              <label id="complexity" class="fs-6 fw-bold custom-text"
-                >TC: 0[n²]</label
-              >
-              <label id="array-size" class="fs-6 fw-bold custom-text"
-                >Array Size</label
-              >
-              <label id="runtime" class="fs-6 fw-bold custom-text"
-                >Stopped</label
-              >
+              <label id="complexity" class="fs-6 custom-text">TC: 0[n²]</label>
+              <label id="array-size" class="fs-6 custom-text">Array Size</label>
+              <label id="runtime" class="fs-6 custom-text">Stopped</label>
             </div>
           </div>
           <div class="card-body border-0 border-top custom-bg">
@@ -127,15 +123,12 @@
 
         <div class="card mb-2 rounded-0">
           <div class="card-body p-3 d-flex justify-content-between rounded">
-            <p class="fs-6 fw-bold mb-0 mt-2 custom-text">View Logs</p>
+            <p class="fs-6 mb-0 mt-2 custom-text">View Logs</p>
             <span>
-              <button class="custom-btn2 fw-bold" onclick="return reset()">
+              <button class="custom-btn2" onclick="return reset()">
                 Reset
               </button>
-              <button
-                class="custom-btn fw-bold"
-                onclick="return clearConsole()"
-              >
+              <button class="custom-btn" onclick="return clearConsole()">
                 Clear console
               </button>
             </span>
@@ -144,7 +137,7 @@
             class="overflow-auto p-3 pb-3 border-0 custom-bg"
             style="height: 10rem"
           >
-            <p id="logs" class="fs-6 fw-bold"></p>
+            <p id="logs" class="fs-6"></p>
           </div>
         </div>
       </div>

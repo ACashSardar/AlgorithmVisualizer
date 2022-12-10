@@ -1,0 +1,45 @@
+body {
+  background: #333;
+}
+.sq-element {
+  width: 40px;
+  height: 40px;
+  background: white;
+  margin: 0px 3px;
+  border-radius: 4px;
+}
+
+#my-board {
+  padding: 5px 2px 0px 2px;
+  border: 2px solid white;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 2px 5px 10px #333;
+}
+
+#prev,
+#next {
+  color: white;
+  padding: 10px;
+}
+
+#prev i,
+#next i {
+  font-size: 30px;
+  margin-top: 163px;
+}
+
+.sq-element:hover,
+#prev i:hover,
+#next i:hover {
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+.bar {
+  width: 70px;
+  height: 10px;
+  margin: 3px;
+  border-radius: 5px;
+  background: white;
+}

@@ -207,7 +207,7 @@ function loadRandomSamples() {
   for (let count = 0; count < elements.length; count++) {
     barList.innerHTML += `
     <li class="mx-5 list-unstyled">
-    <span class="vertical"></span>
+      <span class="vertical" onclick="return getBarHeight(this)"></span>
     </li>
 `;
     audio2.play();

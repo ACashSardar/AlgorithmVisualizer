@@ -1,17 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&family=Comfortaa:wght@500&family=Dancing+Script&family=Fascinate&family=Fuzzy+Bubbles&family=Klee+One&family=Lobster&family=Pacifico&family=Poppins:wght@400&family=Ubuntu&display=swap");
+
 body {
   background: #333;
+  font-family: var(--main-font-family);
 }
 :root {
-  --primary-gradient: linear-gradient(
-    to bottom,
-    rgb(195, 195, 0),
-    rgb(170, 215, 1)
-  );
-  --secondary-gradient: linear-gradient(
-    to bottom,
-    rgb(32, 185, 177),
-    rgb(9, 207, 207)
-  );
+  --main-font-family: Klee One;
 }
 .vertical {
   border-left: 8px solid white;
@@ -24,7 +18,7 @@ body {
 }
 
 #logs {
-  font-family: Menlo;
+  font-family: var(--main-font-family);
   color: rgb(170, 215, 1);
 }
 
@@ -43,25 +37,16 @@ body {
 }
 .custom-btn,
 .custom-btn2 {
-  background: var(--primary-gradient);
+  background: rgb(60, 169, 206);
   color: white;
-  text-shadow: 1px 1px 2px black;
-  padding: 6px 10px;
-  border: 2px solid yellow;
-  border-radius: 2px;
-  font-family: Cambria;
+  padding: 8px 10px;
+  border-radius: 3px;
+  border: 0;
 }
 
-.custom-btn2 {
-  background: var(--secondary-gradient);
-  border: 2px solid turquoise;
-}
-.custom-btn:hover {
-  background: rgb(150, 170, 1);
-}
-
+.custom-btn:hover,
 .custom-btn2:hover {
-  background: darkcyan;
+  background: rgba(75, 175, 210, 0.4);
 }
 
 .custom-text,
@@ -69,7 +54,7 @@ nav,
 footer {
   color: white;
   text-shadow: 1px 1px 2px black;
-  font-family: Cambria;
+  font-family: var(--main-font-family);
   font-size: 18px;
 }
 
