@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&family=Comfortaa:wght@500&family=Dancing+Script&family=Fascinate&family=Fuzzy+Bubbles&family=Klee+One&family=Lobster&family=Pacifico&family=Poppins:wght@400&family=Ubuntu&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+}
+
+main {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#gridContainer {
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: repeat(20, auto);
+  padding: 2px;
+}
+
+.gridItem {
+  height: 32px;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid grey;
+  font-size: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .gridItem {
+    height: 28px;
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .gridItem {
+    height: 20px;
+    font-size: 7px;
+  }
+}

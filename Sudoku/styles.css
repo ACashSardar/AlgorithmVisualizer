@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#gridContainer {
+  max-width: 35rem;
+  background: white;
+  border-radius: 2px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto;
+  padding: 5px;
+}
+
+.gridItem {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid darkcyan;
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+}

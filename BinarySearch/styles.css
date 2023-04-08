@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&family=Comfortaa:wght@500&family=Dancing+Script&family=Fascinate&family=Fuzzy+Bubbles&family=Klee+One&family=Lobster&family=Pacifico&family=Poppins:wght@400&family=Ubuntu&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+}
+
+#gridContainer {
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-gap: 2px;
+}
+
+.gridItem {
+  border: 1px solid grey;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 2px;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 0px;
+}
+
+.gridItem:hover {
+  transform: scale(0.92);
+  transition: 0.5s all ease;
+}
