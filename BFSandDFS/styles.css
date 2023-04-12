@@ -3,24 +3,19 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Poppins";
-}
-
-main {
-  padding-top: 20px;
-  display: flex;
-  justify-content: center;
 }
 
 #gridContainer {
-  border-radius: 2px;
+  max-width: 35rem;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(20, auto);
-  padding: 2px;
+  padding: 1px;
+  background: gray;
 }
 
 .gridItem {
-  height: 32px;
+  height: 25px;
   color: black;
   background-color: rgb(255, 255, 255);
   border: 1px solid grey;
@@ -32,7 +27,7 @@ main {
 
 @media screen and (max-width: 1000px) {
   .gridItem {
-    height: 28px;
+    height: 22px;
     font-size: 8px;
   }
 }

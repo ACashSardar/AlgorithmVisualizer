@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&family=Comfortaa:wght@500&family=Dancing+Script&family=Fascinate&family=Fuzzy+Bubbles&family=Klee+One&family=Lobster&family=Pacifico&family=Poppins:wght@400&family=Ubuntu&display=swap");
 
-body {
-  font-family: "Poppins";
+* {
+  margin: 0;
+  padding: 0;
 }
 
 .vertical {
   border-left: 0px solid #333;
   position: absolute;
-  bottom: 1px;
+  bottom: 5px;
 }
 
 .vertical:hover {

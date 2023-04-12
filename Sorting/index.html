@@ -16,15 +16,50 @@
   </head>
 
   <body>
-    <div class="row mx-0 mt-5">
-      <div class="col-sm col-md-4 p-4">
-        <div class="d-flex justify-content-between mb-2">
-          <h2>Sorting Visualizer</h2>
-          <a href="../index.html" class="mt-3">Home</a>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light border border-bottom p-3"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand fs-4 fw-bold" href="#">ALGORITHM VISUALIZER</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../Sorting/index.html">Sorting</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../Sudoku/index.html">Sudoku</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../TOH/index.html">Tower of Hanoi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../BFSandDFS/index.html">BFS and DFS</a>
+            </li>
+          </ul>
         </div>
+      </div>
+    </nav>
+
+    <div class="row mx-0">
+      <div class="col-sm col-md-4 p-4">
+        <p class="fw-light fs-4">Sorting Visualizer</p>
         <div class="d-flex justify-content-center mb-2">
           <select
-            class="form-select me-2"
+            class="form-select rounded-0 me-2"
             onchange="return handleSortAlgo(event)"
           >
             <option value="bubbleSort">Bubble Sort</option>
@@ -33,18 +68,21 @@
             <option value="mergeSort">Merge Sort</option>
             <option value="quickSort">Quick Sort</option>
           </select>
-          <button class="btn btn-success me-2" onclick="return handleSort()">
+          <button
+            class="btn btn-lg btn-outline-success rounded-0 me-2"
+            onclick="return handleSort()"
+          >
             Sort
           </button>
           <button
-            class="btn btn-outline-danger"
+            class="btn btn-lg btn-outline-danger rounded-0"
             type="submit"
             onclick="return loadRandomSamples()"
           >
             Shuffle
           </button>
         </div>
-        <div class="card mb-2">
+        <div class="card rounded-0 mb-2">
           <div class="card-body">
             <h6>Animation delay</h6>
             <div class="d-flex justify-content-between">
@@ -68,7 +106,7 @@
             />
           </div>
         </div>
-        <div class="card">
+        <div class="card rounded-0">
           <div class="card-body">
             <h6>Number of Samples</h6>
             <div class="d-flex justify-content-between">
@@ -95,18 +133,18 @@
       </div>
 
       <div class="col-sm col-md-8 p-4">
-        <div class="card mb-2" style="height: 17rem">
-          <div class="card-body bg-secondary">
-            <ul id="bar-list"></ul>
-          </div>
-        </div>
-        <div class="card">
+        <div class="card rounded-0">
           <div class="card-body">
             <div class="d-flex justify-content-between">
               <label id="complexity" class="fs-6">TC: 0[ n² ]</label>
               <label id="array-size" class="fs-6">Array Size</label>
               <label id="runtime" class="fs-6">Stopped</label>
             </div>
+          </div>
+        </div>
+        <div class="card border rounded-0" style="height: 18rem">
+          <div class="card-body bg-light">
+            <ul id="bar-list"></ul>
           </div>
         </div>
       </div>

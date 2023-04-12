@@ -35,9 +35,11 @@ const appendDisks = (stick, arr) => {
 
   for (let i = arr.length - 1; i >= 0; i--) {
     stick.innerHTML += `
-      <canvas class="rounded-2 mb-1 border shadow" style="width: ${
+      <canvas class="rounded-2 mb-1" style="width: ${
         arr[i] * 15
-      }%; height: 1.5rem ; background-color: ${colors[arr[i] - 1]};"> </canvas>
+      }%; height: 1.5rem ; background-color: ${
+      colors[arr[i] - 1]
+    }; border: 2px solid ${colors[arr[i] - 1]}"> </canvas>
     `;
   }
 };

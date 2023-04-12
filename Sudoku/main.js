@@ -40,13 +40,13 @@ let samples = [
 
 const colors = [
   "lavender",
-  "greenyellow",
+  "white",
   "lavender",
-  "greenyellow",
+  "white",
   "lavender",
-  "greenyellow",
+  "white",
   "lavender",
-  "greenyellow",
+  "white",
   "lavender",
 ];
 
