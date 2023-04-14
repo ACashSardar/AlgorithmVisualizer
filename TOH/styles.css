@@ -5,5 +5,10 @@
   padding: 0;
 }
 .disk-holder {
-  background: #333;
+  background: white;
+}
+
+canvas:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
 }

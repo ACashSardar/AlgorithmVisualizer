@@ -11,7 +11,7 @@ let sortingAlgo = "bubbleSort";
 let animationTime = 1;
 let sampleCount = 10;
 let isSorted = false;
-let running = false;
+let isRunning = false;
 
 arraySize.innerHTML = `Array size n: ${sampleCount}`;
 
@@ -20,7 +20,7 @@ function adjustAnimation(e) {
 }
 
 function adjustBarWidth(e) {
-  if (running) return;
+  if (isRunning) return;
   sampleCount = parseInt(e.target.value);
   arraySize.innerHTML = `Array size n: ${sampleCount}`;
 
@@ -183,6 +183,7 @@ const mergeSort = async (bars, low, high) => {
 };
 
 function loadRandomSamples() {
+  if (isRunning) return;
   let length = sampleCount;
   let max = 100;
 
@@ -225,8 +226,8 @@ async function handleSort() {
     alert("Already sorted!");
     return;
   }
-
-  running = true;
+  if (isRunning) return;
+  isRunning = true;
   runtime.innerHTML = "Sorting..";
   let start = new Date().getTime();
   if (sortingAlgo === "bubbleSort") {
@@ -242,7 +243,7 @@ async function handleSort() {
   }
   let stop = new Date().getTime();
   isSorted = true;
-  running = false;
+  isRunning = false;
 
   let ms = stop - start;
   let sec = ((stop - start) / 1000).toFixed(2);
@@ -254,8 +255,6 @@ async function handleSort() {
     runtime.innerHTML = "⏱️" + min + " m" + sec + " s";
   }
 }
-
-function clearConsole() {}
 
 function reset() {
   location.reload();

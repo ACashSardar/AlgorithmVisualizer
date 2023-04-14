@@ -10,15 +10,16 @@
   margin: auto;
   display: grid;
   grid-template-columns: repeat(20, auto);
-  padding: 1px;
-  background: gray;
+  padding: 5px;
 }
 
 .gridItem {
   height: 25px;
   color: black;
   background-color: rgb(255, 255, 255);
-  border: 1px solid grey;
+  border: 1px solid lavender;
+  border-radius: 50%;
+  margin: 1px;
   font-size: 8px;
   display: flex;
   justify-content: center;

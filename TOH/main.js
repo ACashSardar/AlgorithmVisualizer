@@ -3,12 +3,12 @@ let aux = document.getElementById("aux");
 let dest = document.getElementById("dest");
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const colors = [
-  "aqua",
-  "deeppink",
-  "greenyellow",
-  "yellow",
-  "orange",
-  "orangered",
+  "#33FFBD",
+  "#33FF57",
+  "#75FF33",
+  "#DBFF33",
+  "#FFBD33",
+  "#FF5733",
 ];
 
 let n = 3;
@@ -39,7 +39,7 @@ const appendDisks = (stick, arr) => {
         arr[i] * 15
       }%; height: 1.5rem ; background-color: ${
       colors[arr[i] - 1]
-    }; border: 2px solid ${colors[arr[i] - 1]}"> </canvas>
+    }; border: 2px solid ${colors[arr[i] - 1]};"> </canvas>
     `;
   }
 };

@@ -1,32 +1,58 @@
 let gridContainer = document.getElementById("gridContainer");
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 let colors = [
-  "#2EDEFD",
-  "#2EEDFD",
-  "#2EFAFD",
-  "#2EFDAF",
-  "#2EFD92",
-  "#63FD2E",
-  "#70FD2E",
-  "#86FD2E",
-  "#A2FD2E",
-  "#C1FD2E",
-  "#D7FD2E",
-  "#EAFD2E",
-  "#FDFD2E",
-  "#FDF42E",
-  "#FDE42E",
-  "#FDDE2E",
-  "#FDD12E",
-  "#FD992E",
-  "#FD8C2E",
-  "#FD732E",
-  "#FD602E",
+  "rgb(250, 100, 0)",
+  "rgb(250, 110, 0)",
+  "rgb(250, 120, 0)",
+  "rgb(250, 130, 0)",
+  "rgb(250, 140, 0)",
+  "rgb(250, 150, 0)",
+  "rgb(250, 160, 0)",
+  "rgb(250, 170, 0)",
+  "rgb(250, 180, 0)",
+  "rgb(250, 190, 0)",
+  "rgb(250, 200, 0)",
+  "rgb(250, 210, 0)",
+  "rgb(250, 220, 0)",
+  "rgb(250, 230, 0)",
+  "rgb(250, 240, 0)",
+  "rgb(250, 250, 0)",
+  "rgb(240, 250, 0)",
+  "rgb(230, 250, 0)",
+  "rgb(220, 250, 0)",
+  "rgb(210, 250, 0)",
+  "rgb(200, 250, 0)",
+  "rgb(190, 250, 0)",
+  "rgb(180, 250, 0)",
+  "rgb(170, 250, 0)",
+  "rgb(160, 250, 0)",
+  "rgb(150, 250, 0)",
+  "rgb(140, 250, 0)",
+  "rgb(130, 250, 0)",
+  "rgb(120, 250, 0)",
+  "rgb(110, 250, 0)",
+  "rgb(100, 250, 0)",
+  "rgb(90, 250, 0)",
+  "rgb(80, 250, 0)",
+  "rgb(70, 250, 0)",
+  "rgb(60, 250, 0)",
+  "rgb(50, 250, 0)",
+  "rgb(40, 250, 0)",
+  "rgb(30, 250, 0)",
+  "rgb(20, 250, 0)",
+  "rgb(10, 250, 0)",
+  "rgb(0, 250, 0)",
+  "rgb(0, 250, 10)",
+  "rgb(0, 250, 20)",
+  "rgb(0, 250, 30)",
+  "rgb(0, 250, 40)",
+  "rgb(0, 250, 50)",
 ];
 let M = 20;
 let N = 20;
 let arr = [];
 let animationTime = 1;
+let isRunning = false;
 
 for (let i = 0; i < M; i++) {
   let row = [];
@@ -39,7 +65,7 @@ for (let i = 0; i < M; i++) {
   arr.push(row);
 }
 
-const dfs = async (i, j, M, N, arr, vis) => {
+const dfs = async (i, j, M, N, arr, vis, i0, j0) => {
   if (i < 0 || i >= M || j < 0 || j >= N) {
     return;
   }
@@ -47,7 +73,8 @@ const dfs = async (i, j, M, N, arr, vis) => {
 
   vis.add(curr);
   let cell = document.getElementById(`c${M * i + j}`);
-  cell.style.background = "yellow";
+  cell.style.background =
+    colors[(Math.abs(i - i0) + Math.abs(j - j0)) % colors.length];
   let y = [1, 0, -1];
   let x = [1, 0, -1];
 
@@ -58,7 +85,7 @@ const dfs = async (i, j, M, N, arr, vis) => {
         let j1 = j + x[q];
         if (vis.has(M * i1 + j1) == false) {
           await sleep(animationTime);
-          await dfs(i1, j1, M, N, arr, vis);
+          await dfs(i1, j1, M, N, arr, vis, i0, j0);
         }
       }
     }
@@ -66,13 +93,18 @@ const dfs = async (i, j, M, N, arr, vis) => {
 };
 
 const dfsTraversal = async (arr, M, N, start) => {
+  if (isRunning == true) return;
+  isRunning = true;
   let vis = new Set();
   let i = Math.floor(start / M);
   let j = start % M;
-  await dfs(i, j, M, N, arr, vis);
+  await dfs(i, j, M, N, arr, vis, i, j);
+  isRunning = false;
 };
 
 const bfsTraversal = async (arr, M, N, start) => {
+  if (isRunning == true) return;
+  isRunning = true;
   let layer = 0;
   let vis = new Set();
   let queue = [];
@@ -110,14 +142,14 @@ const bfsTraversal = async (arr, M, N, start) => {
     }
     layer++;
   }
+  isRunning = false;
 };
 
-const startTraversal = (e) => {
+const startTraversal = async (e) => {
   e.preventDefault();
   reset();
   let str = document.getElementById("start").value;
   let algo = document.getElementById("algo").value;
-  console.log(algo);
   let start = 0;
   if (str != "" && 0 <= parseInt(str) && parseInt(str) < M * N) {
     start = parseInt(str);
@@ -130,7 +162,7 @@ const startTraversal = (e) => {
 };
 
 const reset = () => {
-  console.log("reset called");
+  if (isRunning == true) return;
   for (let i = 0; i < M; i++) {
     for (let j = 0; j < N; j++) {
       let cell = document.getElementById(`c${M * i + j}`);
