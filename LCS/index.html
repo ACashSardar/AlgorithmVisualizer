@@ -57,42 +57,43 @@
     </nav>
     <div class="row m-0">
       <div class="col-sm col-md-4 p-4">
-        <p class="fw-light fs-4">BFS & DFS algorithm</p>
-        <div class="d-flex">
-          <form
-            action=""
-            name="myForm"
-            action="#"
-            method="post"
-            class="d-flex"
-            style="width: 100%"
-          >
-            <select name="" class="form-control rounded-0 me-2" id="algo">
-              <option value="BFS">BFS</option>
-              <option value="DFS">DFS</option>
-            </select>
-            <input
-              type="text"
-              id="start"
-              class="form-control rounded-0 me-2"
-              placeholder="Starting point"
-            />
-            <button
-              class="btn btn-lg btn-outline-success rounded-0 me-2"
-              id="solve-btn"
-              onclick="startTraversal(event)"
-            >
-              Start
-            </button>
-          </form>
+        <p class="fw-light fs-4">Longest Common Subsequence</p>
+        <form
+          name="myForm"
+          class="d-flex mb-2"
+          action="#"
+          method="post"
+          style="width: 100%"
+        >
+          <input
+            type="text"
+            id="str1"
+            class="form-control p-2 rounded-0 me-2"
+            placeholder="Enter 1st string"
+          />
+          <input
+            type="text"
+            id="str2"
+            class="form-control p-2 rounded-0"
+            placeholder="Enter 2nd string"
+          />
+        </form>
+
+        <div class="d-flex justify-content-end">
           <button
-            class="btn btn-lg btn-outline-danger rounded-0"
-            id="solve-btn"
-            onclick="reset()"
+            class="btn btn-lg btn-outline-danger me-2 rounded-0"
+            onclick="reset(event)"
           >
             Reset
           </button>
+          <button
+            class="btn btn-lg btn-outline-success rounded-0"
+            onclick="calcLCS(event)"
+          >
+            Calculate LCS
+          </button>
         </div>
+
         <div class="d-flex">
           <div class="card rounded-0 my-2" style="width: 100%">
             <div class="card-body">
@@ -110,17 +111,22 @@
                 class="form-range me-5"
                 id="customRange1"
                 name="animationSpeed"
-                min="0"
-                max="10"
-                step="2"
-                value="0"
+                min="10"
+                max="510"
+                step="100"
+                value="100"
                 onchange="return adjustAnimation(event)"
               />
             </div>
           </div>
         </div>
       </div>
-      <div class="col-sm col-md-8 p-4">
+
+      <div class="col-sm col-md-8 p-4 text-center">
+        <div id="string1">String1: _blank</div>
+        <div id="string2">String2: _blank</div>
+        <div id="lcs-result">LCS: _blank</div>
+
         <div id="gridContainer"></div>
       </div>
     </div>
