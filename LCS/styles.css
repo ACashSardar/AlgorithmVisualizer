@@ -7,11 +7,21 @@
 
 #string1,
 #string2 {
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: light;
 }
 
 #lcs-result {
-  font-size: 25px;
-  font-weight: normal;
+  font-size: 20px;
+}
+
+#gridContainer {
+  padding-bottom: 20px;
+}
+
+.cell {
+  margin: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
 }

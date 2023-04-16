@@ -14,7 +14,7 @@ const longestCommonSubsequence = async (s1, s2) => {
   let n1 = s1.length;
   let n2 = s2.length;
 
-  lcsresult.innerHTML = "Generating DP array...Please wait";
+  lcsresult.innerHTML = `<p class="text-info fs-5 fw-light">Generating DP array...Please wait</p>`;
   await sleep(animationDelay);
 
   dp = [];
@@ -38,20 +38,19 @@ const longestCommonSubsequence = async (s1, s2) => {
         }
       }
       if (i >= 0 && j >= 0) {
-        dpArray.innerHTML += `<span id="c${
-          i * n2 + j
-        }" class="cell rounded-1 py-2 px-3 m-1">${dp[i][j]}</span>`;
+        dpArray.innerHTML += `<span id="c${i * n2 + j}" class="cell">${
+          dp[i][j]
+        }</span>`;
       } else {
         if (j >= 1)
-          dpArray.innerHTML += `<span id="str1${j}" class="cell rounded-1 border border-dark py-2 px-3 m-1">${
+          dpArray.innerHTML += `<span id="str1${j}" class="cell border">${
             s2[j - 1]
           }</span>`;
         else if (i >= 1)
-          dpArray.innerHTML += `<span id="str2${i}" class="cell rounded-1 border border-dark py-2 px-3 m-1">${
+          dpArray.innerHTML += `<span id="str2${i}" class="cell border">${
             s1[i - 1]
           }</span>`;
-        else
-          dpArray.innerHTML += `<span class="cell rounded-1 py-2 px-3 m-1"></span>`;
+        else dpArray.innerHTML += `<span class="cell"></span>`;
       }
     }
     dpArray.innerHTML += `</div>`;
@@ -70,8 +69,8 @@ const longestCommonSubsequence = async (s1, s2) => {
       lcs = s1[i - 1] + lcs;
       cell.style.background = "lime";
       cell.style.border = "1px solid greenyellow";
-      ch1.style.background = "cyan";
-      ch2.style.background = "cyan";
+      ch1.style.background = "aqua";
+      ch2.style.background = "aqua";
       i--;
       j--;
     } else if (dp[i][j - 1] > dp[i - 1][j]) {
@@ -81,7 +80,7 @@ const longestCommonSubsequence = async (s1, s2) => {
       cell.style.background = "#eee";
       i--;
     }
-    lcsresult.innerHTML = "LCS: " + lcs;
+    lcsresult.innerHTML = "<b>LCS:</b> " + lcs;
   }
 
   return lcs;
@@ -93,24 +92,28 @@ const calcLCS = async () => {
   str1 = document.getElementById("str1").value;
   str2 = document.getElementById("str2").value;
 
-  if (str1 == "" || str2 == "") return;
+  if (str1 == "" || str2 == "") {
+    isRunning = false;
+    return;
+  }
 
   dpArray.innerHTML = "";
 
-  string1.innerHTML = str1;
+  string1.innerHTML = `<b>1st string : </b> "` + str1 + `"`;
   document.getElementById("str1").value = "";
 
-  string2.innerHTML = str2;
+  string2.innerHTML = `<b>2nd string : </b> "` + str2 + `"`;
   document.getElementById("str2").value = "";
-  lcsresult.innerHTML = "LCS: " + (await longestCommonSubsequence(str1, str2));
+  lcsresult.innerHTML =
+    `LCS: "` + (await longestCommonSubsequence(str1, str2)) + `"`;
   isRunning = false;
 };
 
 const reset = () => {
   if (isRunning == true) return;
-  document.getElementById("string1").innerHTML = "String1: _blank";
-  document.getElementById("string2").innerHTML = "String2: _blank";
-  document.getElementById("lcs-result").innerHTML = "LCS: _blank";
+  document.getElementById("string1").innerHTML = "";
+  document.getElementById("string2").innerHTML = "";
+  document.getElementById("lcs-result").innerHTML = "";
   document.getElementById("gridContainer").innerHTML = "";
 };
 
