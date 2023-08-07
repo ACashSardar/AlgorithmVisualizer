@@ -20,46 +20,7 @@
   </head>
 
   <body>
-    <nav
-      class="navbar navbar-expand-lg navbar-light bg-light border border-bottom p-3"
-    >
-      <div class="container-fluid">
-        <a class="navbar-brand fs-4 fw-bold" href="#">ALGORITHM VISUALIZER</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="../index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../Sorting/index.html">Sorting</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../LCS/index.html">LCS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../TOH/index.html">Tower of Hanoi</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../BFSandDFS/index.html">BFS and DFS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../Sudoku/index.html">Sudoku</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <script src="../navbar.js"></script>
     <div class="row m-0">
       <div class="col-sm col-md-4 p-4">
         <p class="fw-light fs-4">BFS & DFS algorithm</p>
@@ -71,18 +32,18 @@
             class="d-flex"
             style="width: 100%"
           >
-            <select name="" class="form-control rounded-0 me-2" id="algo">
+            <select name="" class="form-control rounded-2 me-2" id="algo">
               <option value="BFS">BFS</option>
               <option value="DFS">DFS</option>
             </select>
             <input
               type="text"
               id="start"
-              class="form-control rounded-0 me-2"
+              class="form-control rounded-2 me-2"
               placeholder="Starting point"
             />
             <button
-              class="btn btn-lg btn-outline-success rounded-0 me-2"
+              class="custom-btn me-2"
               id="solve-btn"
               onclick="startTraversal(event)"
             >
@@ -90,7 +51,7 @@
             </button>
           </form>
           <button
-            class="btn btn-lg btn-outline-danger rounded-0"
+            class="custom-outline-btn rounded-2"
             id="solve-btn"
             onclick="reset()"
           >
@@ -98,7 +59,7 @@
           </button>
         </div>
         <div class="d-flex">
-          <div class="card rounded-0 my-2" style="width: 100%">
+          <div class="card rounded-2 my-2" style="width: 100%">
             <div class="card-body">
               <h6 class="custom-text">Animation delay</h6>
               <div class="d-flex justify-content-between custom-text">
@@ -125,10 +86,12 @@
         </div>
       </div>
       <div class="col-sm col-md-8 p-4">
-        <div id="gridContainer"></div>
+        <div id="gridContainer" class="p-3 shadow bg-secondary"></div>
       </div>
     </div>
-
+    <footer class="text-center py-3">
+      Developed by &copy; Akash Sardar, 2023
+    </footer>
     <script src="main.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

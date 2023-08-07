@@ -39,15 +39,15 @@ let samples = [
 ];
 
 const colors = [
-  "lavender",
-  "white",
-  "lavender",
-  "white",
-  "lavender",
-  "white",
-  "lavender",
-  "white",
-  "lavender",
+  "lightblue",
+  "lightyellow",
+  "lightblue",
+  "lightyellow",
+  "lightblue",
+  "lightyellow",
+  "lightblue",
+  "lightyellow",
+  "lightblue",
 ];
 
 const displayBoard = async (board) => {

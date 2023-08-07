@@ -53,6 +53,7 @@ let N = 20;
 let arr = [];
 let animationTime = 1;
 let isRunning = false;
+let blockColor = "black";
 
 for (let i = 0; i < M; i++) {
   let row = [];
@@ -65,12 +66,42 @@ for (let i = 0; i < M; i++) {
   arr.push(row);
 }
 
+let createBlock = (event) => {
+  event.target.style.background = blockColor;
+  event.target.style.color = "white";
+};
+
+let flag = true;
+
+const enableHovering = () => {
+  for (let i = 0; i < M; i++) {
+    for (let j = 0; j < N; j++) {
+      let currCell = document.getElementById(`c${M * i + j}`);
+      currCell.addEventListener("mouseover", createBlock);
+      currCell.addEventListener("click", toggleHovering);
+    }
+  }
+};
+
+const toggleHovering = () => {
+  for (let i = 0; i < M; i++) {
+    for (let j = 0; j < N; j++) {
+      let currCell = document.getElementById(`c${M * i + j}`);
+      if (flag) {
+        currCell.removeEventListener("mouseover", createBlock);
+      } else {
+        currCell.addEventListener("mouseover", createBlock);
+      }
+    }
+  }
+  flag = !flag;
+};
+
 const dfs = async (i, j, M, N, arr, vis, i0, j0) => {
   if (i < 0 || i >= M || j < 0 || j >= N) {
     return;
   }
   let curr = M * i + j;
-
   vis.add(curr);
   let cell = document.getElementById(`c${M * i + j}`);
   cell.style.background =
@@ -83,7 +114,15 @@ const dfs = async (i, j, M, N, arr, vis, i0, j0) => {
       if (y[p] != x[q]) {
         let i1 = i + y[p];
         let j1 = j + x[q];
-        if (vis.has(M * i1 + j1) == false) {
+        if (
+          i1 >= 0 &&
+          i1 < M &&
+          j1 >= 0 &&
+          j1 < N &&
+          vis.has(M * i1 + j1) == false &&
+          document.getElementById(`c${M * i1 + j1}`).style.background !=
+            blockColor
+        ) {
           await sleep(animationTime);
           await dfs(i1, j1, M, N, arr, vis, i0, j0);
         }
@@ -131,7 +170,9 @@ const bfsTraversal = async (arr, M, N, start) => {
               i1 >= 0 &&
               i1 < M &&
               j1 >= 0 &&
-              j1 < N
+              j1 < N &&
+              document.getElementById(`c${M * i1 + j1}`).style.background !==
+                blockColor
             ) {
               queue.push(M * i1 + j1);
               vis.add(M * i1 + j1);
@@ -147,7 +188,6 @@ const bfsTraversal = async (arr, M, N, start) => {
 
 const startTraversal = async (e) => {
   e.preventDefault();
-  reset();
   let str = document.getElementById("start").value;
   let algo = document.getElementById("algo").value;
   let start = 0;
@@ -167,10 +207,14 @@ const reset = () => {
     for (let j = 0; j < N; j++) {
       let cell = document.getElementById(`c${M * i + j}`);
       cell.style.background = "white";
+      cell.style.color = "black";
     }
   }
+  enableHovering();
 };
 
 function adjustAnimation(e) {
   animationTime = parseInt(e.target.value) * 50;
 }
+
+enableHovering();

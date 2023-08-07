@@ -26,7 +26,7 @@ function adjustBarWidth(e) {
 
   Array.from(verticalBars).forEach((bar, index) => {
     bar.style.borderWidth =
-      (100 / sampleCount) * window.innerWidth * 0.00045 + "px";
+      (100 / sampleCount) * window.innerWidth * 0.00069 + "px";
   });
 
   loadRandomSamples();
@@ -51,15 +51,12 @@ const swap = (arr, i, j) => {
 
 const setUpBarHeights = (bars, elements) => {
   const max = elements.reduce((a, b) => Math.max(a, b), -Infinity);
-
-  const dx = 99 / elements.length;
-  console.log(elements.length, dx);
-
+  const dx = 96 / elements.length;
   Array.from(bars).forEach((bar, index) => {
-    bar.style.height = (elements[index] * 200) / max + "px";
-    bar.style.left = 1 + index * dx + "%";
-    bar.style.borderWidth =
-      (100 / sampleCount) * window.innerWidth * 0.006 + "px";
+    bar.style.height = (elements[index] * 440) / max + "px";
+    let width = (100 / sampleCount) * window.innerWidth * 0.0051 + "px";
+    bar.style.left = 2 + index * dx + "%";
+    bar.style.borderWidth = width;
   });
 };
 
@@ -98,7 +95,7 @@ const bubbleSort = async (bars) => {
         await timer(animationTime);
       }
     }
-    bars[bars.length - i - 1].style.borderLeftColor = "cyan";
+    bars[bars.length - i - 1].style.borderLeftColor = "lightseagreen";
   }
 };
 
@@ -118,7 +115,7 @@ const selectionSort = async (bars) => {
     bars[minValIndx].style.borderLeftColor = "#333";
     swapBars(bars, i, minValIndx);
 
-    bars[i].style.borderLeftColor = "cyan";
+    bars[i].style.borderLeftColor = "lightseagreen";
   }
 };
 
@@ -133,7 +130,7 @@ const insertionSort = async (bars) => {
       j--;
     }
     bars[j].style.height = temp;
-    bars[i].style.borderLeftColor = "cyan";
+    bars[i].style.borderLeftColor = "lightseagreen";
   }
 };
 
@@ -144,7 +141,7 @@ const quickSort = async (bars, low, high) => {
   let i = low + 1;
   let j = high;
   bars[low].style.borderLeftColor = "greenyellow";
-  bars[low + 1].style.borderLeftColor = "cyan";
+  bars[low + 1].style.borderLeftColor = "lightseagreen";
   bars[high].style.borderLeftColor = "deeppink";
 
   while (i <= j) {
@@ -168,9 +165,9 @@ const quickSort = async (bars, low, high) => {
 const mergeSort = async (bars, low, high) => {
   if (low >= high) return;
   let mid = parseInt((low + high) / 2);
-  bars[low].style.borderLeftColor = "cyan";
+  bars[low].style.borderLeftColor = "lightseagreen";
   bars[mid].style.borderLeftColor = "deeppink";
-  bars[mid + 1].style.borderLeftColor = "cyan";
+  bars[mid + 1].style.borderLeftColor = "lightseagreen";
   bars[high].style.borderLeftColor = "deeppink";
   await timer(animationTime);
   await mergeSort(bars, low, mid);
@@ -196,10 +193,10 @@ function loadRandomSamples() {
 
   for (let count = 0; count < elements.length; count++) {
     barList.innerHTML += `
-  <li class="mx-5 list-unstyled">
-    <span class="vertical" onclick="return getBarHeight(this)"></span>
-  </li>
-`;
+      <li class="mx-5 list-unstyled">
+        <span class="vertical" onclick="return getBarHeight(this)"></span>
+      </li>
+    `;
   }
 
   verticalBars = document.getElementsByClassName("vertical");

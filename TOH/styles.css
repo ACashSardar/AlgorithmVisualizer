@@ -1,14 +1,51 @@
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&family=Comfortaa:wght@500&family=Dancing+Script&family=Fascinate&family=Fuzzy+Bubbles&family=Klee+One&family=Lobster&family=Pacifico&family=Poppins:wght@400&family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@500&family=Comfortaa:wght@500&family=Dancing+Script&family=Fascinate&family=Fuzzy+Bubbles&family=Kanit:wght@200&family=Klee+One&family=Labrada:wght@200&family=Lato:wght@100&family=Lobster&family=Merriweather:wght@300&family=Nunito:wght@200&family=Pacifico&family=Poppins:wght@100&family=Roboto+Condensed:wght@300&family=Satisfy&family=Titillium+Web:wght@300&family=Ubuntu&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-}
-.disk-holder {
-  background: white;
+  font-family: Titillium Web;
 }
 
 canvas:hover {
   transform: scale(1.05);
   transition: all 0.3s ease;
+}
+
+.custom-btn {
+  padding: 10px 25px;
+  background: blueviolet;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid blueviolet;
+}
+
+.custom-outline-btn {
+  padding: 10px 25px;
+  background: white;
+  color: blueviolet;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid blueviolet;
+}
+
+.custom-btn:hover {
+  background: rgb(138, 43, 226, 0.8);
+  border: 1px solid rgb(138, 43, 226, 0.8);
+  transition: all 0.5s ease;
+}
+
+.custom-outline-btn:hover {
+  background: blueviolet;
+  color: white;
+  transition: all 0.5s ease;
+}
+
+#src,
+#aux,
+#dest {
+  background-position: center;
+  background-size: cover;
+  /* background-image: url(https://www.pngall.com/wp-content/uploads/5/Vertical-Line-PNG-High-Quality-Image.png); */
+  background-image: url(Vertical-Line-PNG-High-Quality-Image.png);
 }

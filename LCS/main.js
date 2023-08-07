@@ -27,7 +27,7 @@ const longestCommonSubsequence = async (s1, s2) => {
   }
 
   for (let i = -1; i <= n1; i++) {
-    dpArray.innerHTML += `<div class="mb-3">`;
+    dpArray.innerHTML += `<div class="mb-2">`;
     for (let j = -1; j <= n2; j++) {
       await sleep(animationDelay / 5);
       if (i > 0 && j > 0) {
@@ -38,19 +38,19 @@ const longestCommonSubsequence = async (s1, s2) => {
         }
       }
       if (i >= 0 && j >= 0) {
-        dpArray.innerHTML += `<span id="c${i * n2 + j}" class="cell">${
+        dpArray.innerHTML += `<label id="c${i * n2 + j}" class="cell">${
           dp[i][j]
-        }</span>`;
+        }</label>`;
       } else {
         if (j >= 1)
-          dpArray.innerHTML += `<span id="str1${j}" class="cell border-dark fw-bold">${
+          dpArray.innerHTML += `<label id="str1${j}" class="cell">${
             s2[j - 1]
-          }</span>`;
+          }</label>`;
         else if (i >= 1)
-          dpArray.innerHTML += `<span id="str2${i}" class="cell border-dark fw-bold">${
+          dpArray.innerHTML += `<label id="str2${i}" class="cell">${
             s1[i - 1]
-          }</span>`;
-        else dpArray.innerHTML += `<span class="cell border-0">__</span>`;
+          }</label>`;
+        else dpArray.innerHTML += `<label class="cell">_</label>`;
       }
     }
     dpArray.innerHTML += `</div>`;
@@ -67,17 +67,20 @@ const longestCommonSubsequence = async (s1, s2) => {
     await sleep(animationDelay * 5);
     if (s1[i - 1] == s2[j - 1]) {
       lcs = s1[i - 1] + lcs;
-      cell.style.background = "lime";
-      cell.style.border = "1px solid greenyellow";
-      ch1.style.background = "aqua";
-      ch2.style.background = "aqua";
+      cell.style.background = "limegreen";
+      ch1.style.background = "dodgerblue";
+      ch2.style.background = "deeppink";
+      cell.style.color = "white";
+      ch1.style.color = "white";
+      ch2.style.color = "white";
+
       i--;
       j--;
     } else if (dp[i][j - 1] > dp[i - 1][j]) {
-      cell.style.background = "#ddd";
+      cell.style.background = "lightblue";
       j--;
     } else {
-      cell.style.background = "#ddd";
+      cell.style.background = "lightblue";
       i--;
     }
     lcsresult.innerHTML = "<b>LCS:</b> " + lcs;
@@ -105,9 +108,9 @@ const calcLCS = async () => {
   string2.innerHTML = `<b>2nd string : </b> "` + str2 + `"`;
   document.getElementById("str2").value = "";
   lcsresult.innerHTML =
-    `<b>Longest Increasing Subsequence </b>"` +
+    `<b class="text-success">Longest Common Subsequence : "` +
     (await longestCommonSubsequence(str1, str2)) +
-    `"`;
+    `"  </b>`;
   isRunning = false;
 };
 
