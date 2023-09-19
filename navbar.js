@@ -16,22 +16,22 @@ const html = `
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item" >
-            <a class="nav-link link-light fw-bold" style="letter-spacing: 2px" href="../index.html">HOME</a>
+            <a class="nav-link link-light fw-bold" style="letter-spacing: 2px" href="/../index.html">HOME</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link link-light fw-bold" style="letter-spacing: 2px" href="../Sorting/index.html">SORTING</a>
+            <a class="nav-link link-light fw-bold" style="letter-spacing: 2px" href="/../Sorting/index.html">SORTING</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link link-light fw-bold" style="letter-spacing: 2px" href="../LCS/index.html">LCS</a>
+            <a class="nav-link link-light fw-bold" style="letter-spacing: 2px" href="/../LCS/index.html">LCS</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link link-light fw-bold" style="letter-spacing: 2px" href="../TOH/index.html">TOWER OF HANOI</a>
+            <a class="nav-link link-light fw-bold" style="letter-spacing: 2px" href="/../TOH/index.html">TOWER OF HANOI</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link link-light fw-bold" style="letter-spacing: 2px" href="../BFSandDFS/index.html">BFS & DFS</a>
+            <a class="nav-link link-light fw-bold" style="letter-spacing: 2px" href="/../BFSandDFS/index.html">BFS & DFS</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link link-light fw-bold" style="letter-spacing: 2px" href="../Sudoku/index.html">SUDOKU</a>
+            <a class="nav-link link-light fw-bold" style="letter-spacing: 2px" href="/../Sudoku/index.html">SUDOKU</a>
         </li>
         </ul>
     </div>
