@@ -1,5 +1,5 @@
 const html = `
-<nav class="navbar navbar-expand-lg navbar-light bg-dark mb-4 p-3" style="box-shadow: 2px 2px 3px 3px grey">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 p-3" style="box-shadow: 2px 2px 3px 3px grey">
     <div class="container-fluid">
     <a class="navbar-brand fw-bold p-0" id="appname" href="#"></a>
     <button
